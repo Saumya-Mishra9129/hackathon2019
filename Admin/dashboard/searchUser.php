@@ -33,34 +33,76 @@
     <div class="container">
     <div class="row text-center">
 	<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+//Connect to mysql server 
+	$connection = mysqli_connect('localhost', 'hackathon', '12345','HackFest');
 
-			include 'inc.php';
+//Check link to the mysql server 
+if(!$connection){ 
+die('Failed to connect to server: ' . mysql_error()); 
+} 
+//Select database 
+$db =mysqli_select_db($connection,"HackFest"); 
+if(!$db){ 
+die("Unable to select database"); 
+} 
+else{
+		if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=="Submit") { 
 
-						$did=generateId("did");
-						$date=date("Y-m-d");
-						$_POST['date']=date("Y-m-d");
-				$sql='INSERT INTO donor VALUES ("'.$did.'","'.$_POST['dFname'].'","'.$_POST['dLname'].'", '.$_POST['dAge'].',"'.$_POST['DBloodGroup'].'", "'.$_POST['dSex'].'","'.$_POST['dAddress'].'","'.$_POST['dCity'].'", '.$_POST['dPincode'].', '.$_POST['dPhoneNo'].') ';
-				mysqli_query($connection,$sql);
-				if(!mysqli_error($connection)){
-					echo'<h1 class="heading">Success</h1>';
-				}
-				else{
-					echo'<h1 class="heading">OOPS!</h1>';
-				}
-      
-				echo'</div><div class="row text-center">
-				<h1 class="heading"><a href="dashboard.php"><i class="fas fa-home"></i></a>
-				</h1>
-				</div><div class="row"><div class="card"><div class="card-header">';
-				echo'<br><br>';
-				if(!mysqli_error($connection)){
-					echo"Donor has been registered successfully";	
-				}	
-				else{
-					echo"There was an error while registering the donor. Do check the credentials or try again later.";
-				}
+
+			//include 'inc.php';
+                    $fname=$_POST['uFname'];
+                    $lname=$_POST['uLname'];
+                    $uId=$_POST['uId'];
+
+						//$did=generateId("did");
+						//$date=date("Y-m-d");
+						//$_POST['date']=date("Y-m-d");
+				$sql='SELECT User.uFname,User.uLname,User.address,PickupRequest.oId,PickUpRequest.cloth,PickUpRequest.footwear,PickUpRequest.book,PickUpRequest.orderDate,PickUpRequest.pickupTime,PickUpRequest.pickupDate FROM User,PickUpRequest WHERE ($uId=PickUpRequest.uId and $uId=User.uId) or ($fname=user.uFname AND $lname=uLname)';
+				
+				$result = mysqli_query($sql);
+				echo '<h1>The User\'s Details are - </h1>';
+
+ /*Draw the table for Players*/ 
+                echo '<table border="1"> 
+
+                   <th> First Name</th> 
+                   <th> Last Name</th>
+                   <th> Order Id </th> 
+                   <th> Clothes</th> 
+                   <th> FootWear</th> 
+                   <th> Book</th> 
+                   <th> Order Date</th> 
+                   <th> pickupDate</th>
+                   <th> pickupTime</th> ';
+
+/*Show the rows in the fetched result set one by one*/ 
+
+                while ($row = mysql_fetch_assoc($result))
+                { 
+                 echo '<tr> 
+
+                 <td>'.$row['uFname'].'</td>
+                 <td>'.$row['uLname'].'</td>
+                 <td>'.$row['address'].'</td> 
+                 <td>'.$row['oId'].'</td> 
+                 <td>'.$row['cloth'].'</td> 
+                 <td>'.$row['footwear'].'</td> 
+                 <td>'.$row['book'].'</td> 
+                 <td>'.$row['orderDate'].'</td> 
+                 <td>'.$row['pickupTime'].'</td> 
+                 <td>'.$row['pickupDate'].'</td>  
+                 </tr>'; 
+                }
+
+                echo '</table>';
 			}
+			else 
+               { 
+                 include("searchUser.html"); 
+                 echo "<center>Enter the customer name</ center>"; 
+               }
+ }              
+
 			?>
         </div>
       </div>
