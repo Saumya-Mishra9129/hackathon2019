@@ -59,7 +59,7 @@ CREATE TABLE `OrderRecord` (
 
 CREATE TABLE `PickUpRequest` (
   `oId` int(11) NOT NULL,
-  `uId` varchar(10) DEFAULT NULL,
+  `uId` int(11) DEFAULT NULL,
   `cloth` int(11) DEFAULT NULL,
   `footwear` int(11) DEFAULT NULL,
   `book` int(11) DEFAULT NULL,

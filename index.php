@@ -93,7 +93,7 @@
 						<i class="fas fa-thumbs-up fa-3x"></i><h4>Blood Donors</h4>
 						<span class="highlight">
 							<?php
-								$query='SELECT count(donor.dId) as number_of_donors FROM donor';
+								/*$query='SELECT count(donor.dId) as number_of_donors FROM donor';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
@@ -102,14 +102,15 @@
 								}
 								else{
 									echo"0 ";
-								}
-							?></span>
+								}*/
+							?>
+							</span>
 					</div>
 					<div class="margin">
 						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Blood Requests</h4>
 						<span class="highlight">
 							<?php
-								$query='SELECT count(*) as number_of_request FROM request';
+								/*$query='SELECT count(*) as number_of_request FROM request';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
@@ -118,7 +119,7 @@
 								}
 								else{
 									echo"No Blood Requests at the moment.";
-								}
+								}*/
 							?>
 						</span>
 					</div>
@@ -126,7 +127,7 @@
 						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Active Donors</h4>
 						<span class="highlight">
 						<?php
-								$query='SELECT count(*) as number_of_active_donors FROM volunteer';
+								/*$query='SELECT count(*) as number_of_active_donors FROM volunteer';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
@@ -135,29 +136,29 @@
 								}
 								else{
 									echo"No Active Donors at the moment.";
-								}
+								}*/
 							?>
 						</span>
 					</div>
 				</div>
 			</div>
 			<div class="align-row">
-				<div class="card margin"> <h3>Blood Donate Tips</h3><hr>
+				<div class="card margin"> <h3>Pros of Donation</h3><hr>
 					<ol ">
 						<li class="margin-4">
-							Eat and drink wisely
+							You get to play a major role in social welfare.
 						</li><br>
 						<li class="margin-4">
-							Face your fears if you're scared of needles
+							You understand the importance of basic necessities when you caress someone else's.
 						</li><br>
 						<li class="margin-4">
-							Come prepared
+							Your life becomes more sorted and rid of unused belongings.
 						</li><br>
 						<li class="margin-4">
-							Dress for success
+							You embrace a new style of life when you ratify someone's happiness!
 						</li><br>
 						<li class="margin-4">
-							Take your time
+							There isn't any con!
 						</li>
 					</ol>
 				</div>
@@ -165,19 +166,18 @@
 					<h3><a href="Requests.php">Blood Requests</a></h3><hr>
 					<div class="padding margin">
 					<?php
-								$query='SELECT request.rid,pFName,pLName,pSex,pBloodGroup
-								FROM request,patient 
-								WHERE request.pId=patient.pId
-								AND unitsRecieved<units';
+								$query='SELECT sum(cloth) as cloth,sum(footwear) as footwear,sum(books) as books
+								FROM PickUpRequest
+								WHERE '.date('F', strtotime('pickupDate')).' == '.date('F Y', mktime(0, 0, 0, date('m')-1, 1, date('Y'))).'';
 								
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									$i=0;
 									while ((($row = mysqli_fetch_array($result))) && ($i<5)) {
-										echo '<div class="align-row row-3">
-											<div class="float-left col">'.$row['pFName'].' '.$row['pLName'].'</div>';
-										echo '<div class="float-center col">'.$row['pSex'].'</div>';
-										echo '<div class="float-right col"><span class="red-text">'.$row['pBloodGroup'].' </span><a href="./requestInfo.php?pass='.$row['rid'].'"><i class="fas fa-info-circle margin"></i></a></div></div>';
+										echo '<div class="align-row row-3">';
+											echo'<div class="float-left col">"Cloth".'.$row['cloth'].'</div>';
+										echo '<div class="float-center col">"FootWear".'.$row['footwear'].'</div>';
+										echo '<div class="float-right col"><span class="red-text">"Books".'.$row['books'].'<i class="fas fa-info-circle margin"></i></a></div></div>';
 										echo "<br>";
 										$i=$i+1;
 									}

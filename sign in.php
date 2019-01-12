@@ -37,11 +37,14 @@
 			<div class="black-text padding">
 				<h2 class="heading">Login</h2>
 				<div class="row">
-					<form action="actionOnRequest.php" method="post" class="align-column">
+					<form action="profile_view.php" method="post" class="align-column">
 
 						<div class="align-row">
 							<div class="col margin-auto">
-								<input class="form-control form-text" type="text" type="text" name="uname" placeholder="User Name" required>
+								<input class="form-control form-text" type="text" type="text" name="fname" placeholder="Fname" required>
+							</div>
+							<div class="col margin-auto">
+								<input class="form-control form-text" type="text" type="text" name="lname" placeholder="Lname" required>
 							</div>
 							<div class="col margin-auto">
 								<input class="form-control form-text" type="password" name="pwd" placeholder="Password" required>
