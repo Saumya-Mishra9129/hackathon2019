@@ -73,7 +73,7 @@
     <div class="col">
       <h1>Total Active Users</h1>
       <?php
-        include "totalUsers.html";
+        include "totalUsers.php";
       ?>
     </div>
   </div>
@@ -99,7 +99,7 @@
     <div class="col">
       <h1>Current Pickup Requests</h1>
       <?php
-        include "currentStatus.html";
+        include "currentStatus.php";
       ?>
     </div>
   </div>
