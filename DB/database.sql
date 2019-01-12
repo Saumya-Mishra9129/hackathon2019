@@ -5,7 +5,8 @@ CREATE TABLE User(
     uLname VARCHAR(20) NOT NULL,
     uPassword VARCHAR(20),
     address VARCHAR(100), 
-    uPhoneNo INT(10)
+    uPhoneNo INT(10),
+    UNIQUE (uId,uPassword)
 
 );
 
