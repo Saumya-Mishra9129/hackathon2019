@@ -61,7 +61,7 @@
 				<br>
 				<br>
 				<div>
-					Haven't Registered Yet? <a href="insertPatient.html">Register Here</a> 
+					Haven't Registered Yet? <a href="register.html">Register Here</a> 
 				</div>
 				<div style="text-align: right;">*T&C apply</div>
 			</div>
