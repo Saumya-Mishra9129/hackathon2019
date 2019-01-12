@@ -1,0 +1,17 @@
+Hack Fest
+
+	Micro-Crowd Funding
+	- user registration
+	- user details
+		: contact, address, name
+	- Clothes, footwear, books
+	- count of items
+	- comfortable time of pickup
+	- Pickup last Weekend of every month
+	- Donation last 2 days of every month
+	- Credits/Stars system
+	- Updates of last donation
+	- Water, Electricity bill relaxation based on credits
+
+
+The idea is to build an online donation system for the underprivileged community. A registered user fills in the information about the items he wants to donate along with his comfortable time of pickup on the webapp. The corresponding government department based on travelling logistics designs a pickup schedule every last weekend of a month and the collected items are donated to the poverty-stricken sections on last two days of that month. The user is also awarded donation credits based on his contribution made towards the upliftment of society.
