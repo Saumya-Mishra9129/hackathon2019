@@ -18,7 +18,7 @@ CREATE TABLE PickUpRequest(
     footwear INT,
     book INT,
     orderDate DATE,
-    pickupTime DATE,
+    pickupTime VARCHAR(20),
     pickupDate DATE
     -- FOREIGN KEY uId REFERENCES User(uId)
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 12, 2019 at 08:29 PM
+-- Generation Time: Jan 12, 2019 at 10:09 PM
 -- Server version: 5.7.24-0ubuntu0.16.04.1
 -- PHP Version: 7.0.32-0ubuntu0.16.04.1
 
@@ -64,7 +64,7 @@ CREATE TABLE `PickUpRequest` (
   `footwear` int(11) DEFAULT NULL,
   `book` int(11) DEFAULT NULL,
   `orderDate` date DEFAULT NULL,
-  `pickupTime` date DEFAULT NULL,
+  `pickupTime` varchar(20) DEFAULT NULL,
   `pickupDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
