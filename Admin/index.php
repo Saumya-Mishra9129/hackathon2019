@@ -40,7 +40,7 @@
 						<div class="content">
 							<div class="header">
 								<div class="head-img text-center">
-									<center><img class="head-img" src="../blood-bank.png"></center>
+									<center><img class="head-img" src="../pic.png"></center>
 								</div>
 								<p class="lead">Login to your account</p>
 							</div>
@@ -68,7 +68,7 @@
 					</div>
 					<div class="right vertical-align-wrap-1">
 						<div class="content-right vertical-align-middle">
-							<h1 class="heading">WELCOME TO BLOOD BANK SYSTEM</h1>
+							<h1 class="heading">WELCOME TO UPKAAR</h1>
 						</div>
 					</div>
 				</div>

@@ -46,9 +46,12 @@
 							<div class="col margin-auto">
 								<input class="form-control form-text" type="text" type="text" name="lname" placeholder="Lname" required>
 							</div>
+							
+						</div>
+						<div class="align-row">
 							<div class="col margin-auto">
-								<input class="form-control form-text" type="password" name="pwd" placeholder="Password" required>
-							</div>
+									<input class="form-control form-text" type="password" name="pwd" placeholder="Password" required>
+							</div>	
 						</div>
 						<br>
 						<br>

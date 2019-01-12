@@ -31,7 +31,7 @@
 			<h1 class="heading">Donation Portal</h1>
 		</div>
 		<div class="row text-center">
-			<center><img class="head-img" src="blood-bank.png"></center>
+			<center><img class="head-img" src="pic.png"></center>
 		</div>
 		<div class="row">
 			<div class="card">
@@ -51,7 +51,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row red border">
+		<div class="row red border" style="background-color: #12889B">
 			<div class="content">
 				<h2>Search Blood Donors</h2>
 				<div class="main-form">
@@ -82,7 +82,7 @@
 					<h2>Want to become a Volunteer?</h2>
 				</div>
 				<div class="col margin-4">
-					<a href="registerVolunteer.html"><button class="red-button" onclick="">Register Now</button></a>
+					<a href="registerVolunteer.html"><button class="red-button" onclick="" style="background-color: #12889B">Register Now</button></a>
 				</div>
 			</div>
 		</div>
