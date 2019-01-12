@@ -34,29 +34,21 @@
       echo $_SESSION["username"]."<br><a href='../logout.php'>Logout</a>";
     ?>
   <ul>
-  <a href="#registerDonor">
+  <a href="#searchUser">
     <li>
-     Register a Donor
+     Search a User
   </li></a>
-  <a href="#registerPatient">
+  <a href="#totalUsers">
     <li>
-     Register a Pateint
+     Total Users
   </li></a>
-  <a href="#IssueBlood">
+  <a href="#pastDonations">
     <li>
-     Issue Blood
+     Past Donations
   </li></a>
-  <a href="#check">
+  <a href="#currentStatus">
     <li>
-    Check Availability
-  </li></a>
-  <a href="#addInInventory">
-    <li>
-     Add in Inventory
-  </li></a>
-  <a href="#history">
-    <li>
-     Infusion History
+    Check Current Status
   </li></a>
   </ul>
   
@@ -64,11 +56,11 @@
 
 <main id="main-doc">
 
-  <div class="row" id="registerDonor">
+  <div class="row" id="searchUser">
     <div class="col">
-      <h1>Register a Donor</h1>
+      <h1>Search a User</h1>
       <?php
-        include "insertdonor.html";
+        include "searchUser.html";
       ?>
     </div>
   </div>
@@ -77,11 +69,11 @@
   <br>
   <hr>
 
-  <div class="row" id="registerPatient">
+  <div class="row" id="totalUsers">
     <div class="col">
-      <h1>Register a Patient</h1>
+      <h1>Total Active Users</h1>
       <?php
-        include "insertPatient.html";
+        include "totalUsers.html";
       ?>
     </div>
   </div>
@@ -90,11 +82,11 @@
   <br>
   <hr>
 
-  <div class="row" id="check">
+  <div class="row" id="pastDonations">
     <div class="col">
-      <h1>Check Availability</h1>
+      <h1>Check Past Donations</h1>
       <?php
-        include "check.html";
+        include "pastDonations.html";
       ?>
     </div>
   </div>
@@ -103,11 +95,11 @@
   <br>
   <hr>
 
-  <div class="row" id="IssueBlood">
+  <div class="row" id="currentStatus">
     <div class="col">
-      <h1>Issue Blood to Pateint</h1>
+      <h1>Current Pickup Requests</h1>
       <?php
-        include "issue.html";
+        include "currentStatus.html";
       ?>
     </div>
   </div>
@@ -115,28 +107,6 @@
   <br>
   <br>
   <hr>
-
-  <div class="row" id="addInInventory">
-    <div class="col">
-      <h1>Blood Donation</h1>
-      <?php
-        include "addBlood.html";
-      ?>
-    </div>
-  </div>
-
-  <br>
-  <br>
-  <hr>
-
-  <div class="row" id="history">
-    <div class="col">
-      <h1>Infusion History</h1>
-      <?php
-        include "history.php";
-      ?>
-    </div>
-  </div>
 	
 </main>
 
