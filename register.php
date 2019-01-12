@@ -27,13 +27,13 @@
 <body>
 	<div class="container">
 		<div class="row text-center">
-			<h1 class="heading">Welcome To Fill Red Organisation</h1>
+			<h1 class="heading">Donation Portal</h1>
 		</div>
 		<div class="row text-center">
 			<center><img class="head-img" src="blood-bank.png"></center>
 		</div>
 		<div class="row">
-			<span class=""><a href="./index.php">Home</a>/Check Request</span>
+			<span class=""><a href="./index.php">Home</a>/Request</span>
 		</div>
 		<div class="row card black-text border">
 			<div class="black-text padding">
@@ -42,30 +42,34 @@
 				<?php
 					session_start();
 					include "./DB/DbConnection.php";
-					include "inc.php";
+					//include "inc.php";
 						if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
 
-						$pid=generateId("pid");
-						$vid=generateId("vid");
-						$date=date("Y-m-d");
-						$_POST['date']=date("Y-m-d");
+						
+                             $uId=$_POST['uId'];
+						     $uFname=$_POST['uFname'];
+						     $uLname=$_POST['uLname'];
+						     $uPassword=$_POST['uPassword']; 
+							 $ucPassword=$_POST['ucPassword'];
+						     $uPhoneNo=$_POST['uPhoneNo'];
+						     $address=$_POST['address']; 
+						
+							$sql='INSERT INTO User VALUES ("'.$uId.'","'.$uFname.'","'.$uLname.'","'.$uPassword.'", "'.$address.'", "'.$uPhoneNo.'") ';
 
-							$sql='INSERT INTO patient VALUES ("'.$pid.'","'.$_POST['pFNAME'].'","'.$_POST['PLNAME'].'","'.$_POST['pSEX'].'", '.$_POST['pAge'].', "'.$_POST['pAddress'].'", '.$_POST['pPhoneNo'].',"'.$_POST['pBloodGroup'].'",'.$_POST['p_pincode'].',"'.$_POST['p_city'].'") ';
-
-							echo "<br><br>";
+							 echo "<br><br>";
 							mysqli_query($connection,$sql);
 							if(!mysqli_error($connection)){
 								echo"<div>";
 								echo "Your request has been successfully placed.</div><div>";
-								echo "Your Patient Identificaion No. is : ";
-								echo $pid;
+							
+								
 								echo"</div><div>";
 								echo "</div>Please note your Patient Identificaion No. for further references.";
 							}
 							else	echo mysqli_error($connection);
 						}
 						else{
-							header("location: index.php");
+							header("location: login.php");
 						}
 				?>
 				</div>

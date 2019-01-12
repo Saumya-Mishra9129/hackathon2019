@@ -6,7 +6,7 @@
 <html lang="en">
 
 <head>
-	<title>Welcome To Fill Red</title>
+	<title>Welcome</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -28,7 +28,7 @@
 <body>
 	<div class="container">
 		<div class="row text-center">
-			<h1 class="heading">Welcome To Fill Red Organisation</h1>
+			<h1 class="heading">Donation Portal</h1>
 		</div>
 		<div class="row text-center">
 			<center><img class="head-img" src="blood-bank.png"></center>
@@ -37,14 +37,12 @@
 			<div class="card">
 				<div class="card-header">
 					<ul>
+						
 						<li>
-							<a href="placeRequest.html">Request Blood</a>
+							<a href="sign in.php">Login</a>
 						</li>
 						<li>
-							<a href="checkRequests.php">Check Your Requests</a>
-						</li>
-						<li>
-							<a href="insertPatient.html">Register Patient</a>
+							<a href="register.html">Sign Up</a>
 						</li>
 						<li>
 							<a>Contact Us</a>
