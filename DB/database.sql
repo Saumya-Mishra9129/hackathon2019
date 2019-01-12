@@ -1,5 +1,3 @@
-CREATE DATABASE Hackfest;
-
 CREATE TABLE User(
     
     uId INT AUTO_INCREMENT PRIMARY KEY,
@@ -11,27 +9,25 @@ CREATE TABLE User(
 
 );
 
-
 CREATE TABLE PickUpRequest(
 
     oId INT AUTO_INCREMENT PRIMARY KEY,
-    uId VARCHAR(10) UNIQUE,
+    uId VARCHAR(10) REFERENCES User(uId),
     cloth INT,
     footwear INT,
     book INT,
     orderDate DATE,
     pickupTime DATE,
-    pickupDate DATE,
-    FOREIGN KEY uId REFERENCES User(uId)
+    pickupDate DATE
+    -- FOREIGN KEY uId REFERENCES User(uId)
 
 );
-
 
 CREATE TABLE OrderRecord(
 
     date DATE PRIMARY KEY,
     cloth INT,
     footwear INT,
-    book INT,
+    book INT
 
 );
