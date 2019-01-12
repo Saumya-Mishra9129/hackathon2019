@@ -57,7 +57,7 @@ else{
 						//$did=generateId("did");
 						//$date=date("Y-m-d");
 						//$_POST['date']=date("Y-m-d");
-				$sql='SELECT User.uFname,User.uLname,User.address,PickupRequest.oId,PickUpRequest.cloth,PickUpRequest.footwear,PickUpRequest.book,PickUpRequest.orderDate,PickUpRequest.pickupTime,PickUpRequest.pickupDate FROM User,PickUpRequest WHERE ($uId=PickUpRequest.uId and $uId=User.uId) or ($fname=user.uFname AND $lname=uLname)';
+				$sql='SELECT User.uFname,User.uLname,User.address,PickupRequest.oId,PickUpRequest.cloth,PickUpRequest.footwear,PickUpRequest.book,PickUpRequest.orderDate,PickUpRequest.pickupTime,PickUpRequest.pickupDate FROM User,PickUpRequest WHERE ($uId=PickUpRequest.uId and $uId=User.uId)';
 				
 				$result = mysqli_query($sql);
 				echo '<h1>The User\'s Details are - </h1>';
