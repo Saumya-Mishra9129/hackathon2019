@@ -1,10 +1,6 @@
 <?php
   include('../../DB/DbConnection.php');
-  session_start();
 
-  if(!isset($_SESSION['username']) AND $_SESSION['member_id'] == ''){
-    header('location:../login.php');
-  }
 
 ?>
 
@@ -32,36 +28,17 @@
     <div class="container">
     <div class="row text-center">
 	<?php
-		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-			include 'inc.php';
-
-						$pid=generateId("pid");
-						$date=date("Y-m-d");
-						$_POST['date']=date("Y-m-d");
-
-				$sql='INSERT INTO patient VALUES ("'.$pid.'","'.$_POST['pFNAME'].'","'.$_POST['PLNAME'].'","'.$_POST['pSEX'].'", '.$_POST['pAge'].', "'.$_POST['pAddress'].'", '.$_POST['pPhoneNo'].',"'.$_POST['pBloodGroup'].'",'.$_POST['p_pincode'].',"'.$_POST['p_city'].'") ';
-
-				mysqli_query($connection,$sql);
-				if(!mysqli_error($connection)){
-					echo'<h1 class="heading">Success</h1>';
-				}
-				else{
-					echo'<h1 class="heading">OOPS!</h1>';
-				}
-				echo'</div><div class="row text-center">
-				<h1 class="heading"><a href="dashboard.php"><i class="fas fa-home"></i></a>
-				</h1>
-				</div><div class="row"><div class="card"><div class="card-header">';
-				echo'<br><br>';
-				if(!mysqli_error($connection)){
-					echo"Patient has been registered successfully";	
-				}	
-				else{
-					echo"There was an error while registering the patient. Do check the credentials or try again later.";
-				}
-			}
-			?>
+								$query='SELECT count(*) as users FROM User';
+								$result = mysqli_query($connection,$query);
+								if(mysqli_num_rows($result)>0){
+									while ($row = mysqli_fetch_array($result)) {
+										echo "<h1>".$row['users']."</h1>";
+									}
+								}
+								else{
+									echo"0 ";
+								}
+							?>
         </div>
       </div>
     </div>

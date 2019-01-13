@@ -82,11 +82,9 @@ session_start();
 	//Check if query executes successfully 
 	if($results == FALSE) {
 	//echo mysql_error(); 
-	echo "hi";
 }
 	else 
 	{
-		echo "yayy";
 	$userInfo=mysqli_fetch_array($results);
 			
 
@@ -102,21 +100,27 @@ exit();
 
 ?>
 
+<link rel="stylesheet" href="./css/extra.css">
+
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+
+	<!--Font FontAwesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 <h1 class="h" style="text-align:center" >Your Profile</h1>
 
 
 <div class="card">
 <br><br>
- <img class="pro" src="pr.jpg" alt="check">
 <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
   <h2><h2/> <?php echo $userInfo['uFname']." ".$userInfo['uLname'] ?>
-  <p>Gender - <?php echo $userInfo['address']?> </p>
-  <p>Email - <?php echo $userInfo['uPassword']?>
+ 
+  <p> Address <?php echo $userInfo['address']?>
   <br/> </p>
   <p> Phone No -<?php echo $userInfo['uPhoneNo'] ?><p/>
   
-  <a href="profile_edit.php"> Edit Your Profile </a>
+  <p><a href="profile_edit.php"> Edit Your Profile </a><p/>
   <br>
 
 </div>

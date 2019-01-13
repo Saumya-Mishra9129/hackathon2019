@@ -1,10 +1,6 @@
 <?php
   include('../../DB/DbConnection.php');
-  session_start();
 
-  if(!isset($_SESSION['username']) AND $_SESSION['member_id'] == ''){
-    header('location:../login.php');
-  }
 
 ?>
 
@@ -23,7 +19,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 
-  <link rel="icon" type="image/png" sizes="96x96" href="">
   
   
 </head>
