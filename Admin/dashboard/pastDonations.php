@@ -32,30 +32,39 @@
     <div class="container">
     <div class="row text-center">
 	<?php
-		echo'<h1 class="heading">Availability</h1>';
+		echo'<h1 class="heading">Past Donations</h1>';
 				echo'</div><div class="row text-center">
 				<h1 class="heading"><a href="dashboard.php"><i class="fas fa-home"></i></a>
 				</h1>
 				</div><div class="row"><div class="card"><div class="card-header" style="margin-top:-5px;">';
 				echo'<br><br>';
 		if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
-				$sql='SELECT D.DBloodGroup as Blood_Group , count(*) as count FROM availability A, donor D, blood B WHERE A.bId = B.bId AND B.dId = D.dId AND D.DBloodGroup = "'.$_POST['DBloodGroup'].'" GROUP BY D.DBloodGroup';
-					
-				$result = mysqli_query($connection,$sql);
-				
+							$query='SELECT sum(cloth) as cloth,sum(footwear) as footwear,sum(book) as books
+								FROM OrderRecord WHERE month(date) == $_POST['month'] AND year(date) == $_POST['year']';
+								
+								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
-									
-									while ((($row = mysqli_fetch_array($result))) ) {
-										echo '<div class="align-row">
-											<div style="margin:0 auto; font-size:50px;">'.$row['Blood_Group'];
-										echo '<br>'.$row['count'].'</div>';
+									$i=0;
+									while ((($row = mysqli_fetch_array($result))) && ($i<5)) {
+										echo '<div class="align-row row-3">';
+											echo'<div class="float-left col">Cloth  '.$row['cloth'].'</div>';
+											echo '<br>';
+										echo '<div class="float-center col">FootWear  '.$row['footwear'].'</div>';
+																					echo '<br>';
+
+										echo '<div class="float-right col">Books  '.$row['books'].'</i></a></div></div>';
+																					echo '<br>';
+
 										echo "<br>";
-										
+										$i=$i+1;
 									}
-								}
+								}	
+					
+				
+						}
 								
 				else{
-					echo"There is no Blood Available of the required Blood Group.";
+					echo"There are no resources available";
 				}
 			}
 			?>

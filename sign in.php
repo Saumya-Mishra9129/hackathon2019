@@ -37,7 +37,7 @@
 			<div class="black-text padding">
 				<h2 class="heading">Login</h2>
 				<div class="row">
-					<form action="profile_view.php" method="post" class="align-column">
+					<form action="search.php" method="post" class="align-column">
 
 						<div class="align-row">
 							<div class="col margin-auto">

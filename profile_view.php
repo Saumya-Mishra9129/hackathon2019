@@ -73,6 +73,28 @@ session_start();
 	if(!$db){ 
 	die("Unable to select database"); 
 	} 
+	<div class="container">
+		<div class="row text-center">
+			<h1 class="heading">Welcome To Fill Red Organisation</h1>
+		</div>
+		<div class="row text-center">
+			<center><img class="head-img" src="blood-bank.png"></center>
+		</div>
+		<div class="row">
+			<span class=""><a href="./index.php">Home</a>/Available Donor</span>
+		</div>
+		<div class="row card black-text border">
+			<div class="black-text padding">
+				<h2 class="heading">Available Donor</h2>
+
+				<div class="align-row row-3">
+					<div class="float-left col">Name</div>
+					<div class="float-center col">Sex</div>
+					<div class="float-right col">
+					Blood Group
+					</div>
+				</div>
+					<br>
 	//Create Insert query 
 	$query = "Select * from User where uFname='".$_SESSION['fname']."'";
 	//Execute query 
