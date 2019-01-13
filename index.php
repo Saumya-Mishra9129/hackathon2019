@@ -58,8 +58,8 @@
 					<form action="search.php" method="POST"><div class="col" ><span class="float-right" style="font-size: 20px;">Login:</span></div>
 						<div class="col" style="margin-left: 20px" >
 						   <div class="row-120" >
-							<input  class="form-control form-text" type="text" type="text" name="fname" placeholder="Fname" required>
-							<input class="form-control form-text" type="text" type="text" name="lname" placeholder="Lname" required>
+							<input  class="form-control form-text" type="text" type="text" name="fname" placeholder="First" required><br>
+							<input class="form-control form-text" type="text" type="text" name="lname" placeholder="Last" required><br>
 							<input class="form-control form-text" type="password" name="pwd" placeholder="Password" required>
 							</div>
 						</div>
@@ -118,7 +118,7 @@
 						</span>
 					</div>
 					<div class="margin">
-						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Order Numbers</h4>
+						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Total Donations</h4>
 						<span class="highlight">
 						<?php
 								$query='SELECT count(*) as number_of_active_donors FROM OrderRecord';
@@ -169,10 +169,7 @@
 									while ((($row = mysqli_fetch_array($result))) && ($i<5)) {
 										echo '<div class="align-row row-3">';
 											echo'<div class="float-left col">Cloth  '.$row['cloth'].'</div>';
-											echo '<br>';
 										echo '<div class="float-center col">FootWear  '.$row['footwear'].'</div>';
-																					echo '<br>';
-
 										echo '<div class="float-right col">Books  '.$row['books'].'</i></a></div></div>';
 																					echo '<br>';
 

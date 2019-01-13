@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.4.1deb2ubuntu2.1
--- http://www.phpmyadmin.net
+-- version 4.8.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 12, 2019 at 10:09 PM
--- Server version: 5.7.24-0ubuntu0.16.04.1
--- PHP Version: 7.0.32-0ubuntu0.16.04.1
+-- Host: 127.0.0.1
+-- Generation Time: Jan 13, 2019 at 04:21 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `HackFest`
+-- Database: `hackfest`
 --
 
 -- --------------------------------------------------------
@@ -41,29 +43,32 @@ INSERT INTO `admin` (`userid`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `OrderRecord`
+-- Table structure for table `orderrecord`
 --
 
-CREATE TABLE `OrderRecord` (
+CREATE TABLE `orderrecord` (
   `date` date NOT NULL,
   `cloth` int(11) DEFAULT NULL,
   `footwear` int(11) DEFAULT NULL,
   `book` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `orderrecord`
+--
+
+INSERT INTO `orderrecord` (`date`, `cloth`, `footwear`, `book`) VALUES
+('2019-01-13', 43, 32, 1);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `PickUpRequest`
+-- Table structure for table `pickuprequest`
 --
 
-CREATE TABLE `PickUpRequest` (
+CREATE TABLE `pickuprequest` (
   `oId` int(11) NOT NULL,
-<<<<<<< HEAD
-  `uId` INT(11) DEFAULT NULL,
-=======
   `uId` int(11) DEFAULT NULL,
->>>>>>> sync/master
   `cloth` int(11) DEFAULT NULL,
   `footwear` int(11) DEFAULT NULL,
   `book` int(11) DEFAULT NULL,
@@ -75,10 +80,10 @@ CREATE TABLE `PickUpRequest` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `User`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `User` (
+CREATE TABLE `user` (
   `uId` int(11) NOT NULL,
   `uFname` varchar(20) NOT NULL,
   `uLname` varchar(20) NOT NULL,
@@ -86,6 +91,14 @@ CREATE TABLE `User` (
   `address` varchar(100) DEFAULT NULL,
   `uPhoneNo` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`uId`, `uFname`, `uLname`, `uPassword`, `address`, `uPhoneNo`) VALUES
+(1, 'Saumya', 'Mishra', 'qwerty', 'dwedf', 2147483647),
+(2017262, 'Sparsh', 'Ahuja', 'asdfg', 'xzcvb', 123456788);
 
 --
 -- Indexes for dumped tables
@@ -98,21 +111,21 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`userid`);
 
 --
--- Indexes for table `OrderRecord`
+-- Indexes for table `orderrecord`
 --
-ALTER TABLE `OrderRecord`
+ALTER TABLE `orderrecord`
   ADD PRIMARY KEY (`date`);
 
 --
--- Indexes for table `PickUpRequest`
+-- Indexes for table `pickuprequest`
 --
-ALTER TABLE `PickUpRequest`
+ALTER TABLE `pickuprequest`
   ADD PRIMARY KEY (`oId`);
 
 --
--- Indexes for table `User`
+-- Indexes for table `user`
 --
-ALTER TABLE `User`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`uId`),
   ADD UNIQUE KEY `uId` (`uId`,`uPassword`);
 
@@ -121,15 +134,18 @@ ALTER TABLE `User`
 --
 
 --
--- AUTO_INCREMENT for table `PickUpRequest`
+-- AUTO_INCREMENT for table `pickuprequest`
 --
-ALTER TABLE `PickUpRequest`
+ALTER TABLE `pickuprequest`
   MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT;
+
 --
--- AUTO_INCREMENT for table `User`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `User`
-  MODIFY `uId` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user`
+  MODIFY `uId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2017263;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
