@@ -90,27 +90,27 @@
 			<div class="card center margin align-row">
 				<div class="center align-row">
 					<div class="margin">
-						<i class="fas fa-thumbs-up fa-3x"></i><h4>Blood Donors</h4>
+						<i class="fas fa-thumbs-up fa-3x"></i><h4>Active Users</h4>
 						<span class="highlight">
 							<?php
-								/*$query='SELECT count(donor.dId) as number_of_donors FROM donor';
+								$query='SELECT count(*) as users FROM User';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
-										echo $row['number_of_donors']." ";
+										echo $row['users']." ";
 									}
 								}
 								else{
 									echo"0 ";
-								}*/
+								}
 							?>
 							</span>
 					</div>
 					<div class="margin">
-						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Blood Requests</h4>
+						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Recent PickUp Requests</h4>
 						<span class="highlight">
 							<?php
-								/*$query='SELECT count(*) as number_of_request FROM request';
+								$query='SELECT count(*) as number_of_request FROM PickUpRequest';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
@@ -119,15 +119,15 @@
 								}
 								else{
 									echo"No Blood Requests at the moment.";
-								}*/
+								}
 							?>
 						</span>
 					</div>
 					<div class="margin">
-						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Active Donors</h4>
+						<i class="fas fa-hand-holding-heart fa-3x"></i><h4>Order Numbers</h4>
 						<span class="highlight">
 						<?php
-								/*$query='SELECT count(*) as number_of_active_donors FROM volunteer';
+								$query='SELECT count(*) as number_of_active_donors FROM OrderRecord';
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									while ($row = mysqli_fetch_array($result)) {
@@ -136,7 +136,7 @@
 								}
 								else{
 									echo"No Active Donors at the moment.";
-								}*/
+								}
 							?>
 						</span>
 					</div>
@@ -163,21 +163,25 @@
 					</ol>
 				</div>
 				<div class="card margin">
-					<h3><a href="Requests.php">Blood Requests</a></h3><hr>
+					<h3><a href="Requests.php">The monthly Inventory Record</a></h3><hr>
 					<div class="padding margin">
 					<?php
-								$query='SELECT sum(cloth) as cloth,sum(footwear) as footwear,sum(books) as books
-								FROM PickUpRequest
-								WHERE '.date('F', strtotime('pickupDate')).' == '.date('F Y', mktime(0, 0, 0, date('m')-1, 1, date('Y'))).'';
+								$query='SELECT sum(cloth) as cloth,sum(footwear) as footwear,sum(book) as books
+								FROM OrderRecord';
 								
 								$result = mysqli_query($connection,$query);
 								if(mysqli_num_rows($result)>0){
 									$i=0;
 									while ((($row = mysqli_fetch_array($result))) && ($i<5)) {
 										echo '<div class="align-row row-3">';
-											echo'<div class="float-left col">"Cloth".'.$row['cloth'].'</div>';
-										echo '<div class="float-center col">"FootWear".'.$row['footwear'].'</div>';
-										echo '<div class="float-right col"><span class="red-text">"Books".'.$row['books'].'<i class="fas fa-info-circle margin"></i></a></div></div>';
+											echo'<div class="float-left col">Cloth  '.$row['cloth'].'</div>';
+											echo '<br>';
+										echo '<div class="float-center col">FootWear  '.$row['footwear'].'</div>';
+																					echo '<br>';
+
+										echo '<div class="float-right col">Books  '.$row['books'].'</i></a></div></div>';
+																					echo '<br>';
+
 										echo "<br>";
 										$i=$i+1;
 									}
@@ -189,34 +193,7 @@
 					</div>
 				
 				</div>
-				<div class="card margin"> <h3>Available Blood</h3>
-					<hr><br>
-
-					<?php
-								$query='SELECT D.DBloodGroup , count(*) as count
-									FROM availability A, donor D, blood B
-									WHERE A.bId = B.bId
-									AND B.dId = D.dId
-									GROUP BY D.DBloodGroup';
-								
-								$result = mysqli_query($connection,$query);
-								if(mysqli_num_rows($result)>0){
-									$i=0;
-									while ((($row = mysqli_fetch_array($result))) && ($i<8)) {
-										echo '<div class="align-row row-3">
-											<div class="float-left col">'.$row['DBloodGroup'].'</div><div></div>';
-										
-										echo '<div class="float-right col"><span class="red-text">'.$row['count'].' </span></div></div>';
-										echo "<br>";
-										$i=$i+1;
-									}
-								}
-								else{
-									echo"No Requests at the moment.";
-								}
-							?>
-
-				</div>
+				
 			</div>
 		</div>
 	</div>

@@ -74,7 +74,7 @@ session_start();
 	die("Unable to select database"); 
 	} 
 	//Create Insert query 
-	$query = "Select * from User where uFname='".$_POST['fname']."'";
+	$query = "Select * from User where uFname='".$_SESSION['fname']."'";
 	//Execute query 
 	
 	$results = mysqli_query($link,$query); 
