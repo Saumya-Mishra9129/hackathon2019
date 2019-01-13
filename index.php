@@ -28,7 +28,7 @@
 <body>
 	<div class="container">
 		<div class="row text-center">
-			<h1 class="heading">Donation Portal</h1>
+			<h1 class="heading">UPKAAR</h1>
 		</div>
 		<div class="row text-center">
 			<center><img class="head-img" src="pic.png"></center>
@@ -53,23 +53,17 @@
 		</div>
 		<div class="row red border" style="background-color: #12889B">
 			<div class="content">
-				<h2>Search Blood Donors</h2>
+				<h2>Want to Contribute</h2>
 				<div class="main-form">
-					<form action="search.php" method="POST"><div class="col"><span class="float-right" style="font-size: 20px;">Blood Group :</span></div>
-						<div class="col">
-							<select class="input" name="DBloodGroup" required id="DBloodGroup" required>
-										<option></option>
-										<option value="A+">A+</option>
-										<option value="A-">A-</option>
-										<option value="B+">B+</option>
-										<option value="B-">B-</option>
-										<option value="AB+">AB+</option>
-										<option value="AB-">AB-</option>
-										<option value="O+">O+</option>
-										<option value="O-">O-</option>
-										</select>
+					<form action="search.php" method="POST"><div class="col" ><span class="float-right" style="font-size: 20px;">Login:</span></div>
+						<div class="col" style="margin-left: 20px" >
+						   <div class="row-120" >
+							<input  class="form-control form-text" type="text" type="text" name="fname" placeholder="Fname" required>
+							<input class="form-control form-text" type="text" type="text" name="lname" placeholder="Lname" required>
+							<input class="form-control form-text" type="password" name="pwd" placeholder="Password" required>
+							</div>
 						</div>
-						<div class="col margin-4"><input class="input" type="submit" value="Submit"></div>
+						<div class="col" style="margin-left: 60px"><input class="input" type="submit" value="Submit" ></div>
 					</form>
 					<div class="margin-60">
 						<h4>*T&amp;C apply</h4>
@@ -79,7 +73,7 @@
 			<hr class="hr">
 			<div class="text-left content align-row">
 				<div class="col">
-					<h2>Want to become a Volunteer?</h2>
+					<h2>No account?</h2>
 				</div>
 				<div class="col margin-4">
 					<a href="registerVolunteer.html"><button class="red-button" onclick="" style="background-color: #12889B">Register Now</button></a>
